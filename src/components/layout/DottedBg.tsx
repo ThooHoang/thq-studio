@@ -1,3 +1,6 @@
+import { ArrowUpRight } from "lucide-react";
+
+
 export default function DottedBg() {
     return ( <>
         <div className="hero-dots absolute inset-0 -z-10"></div>

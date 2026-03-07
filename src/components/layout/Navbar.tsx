@@ -70,7 +70,7 @@ export default function Navbar() {
             <button 
                 className="hidden md:flex items-center justify-center gap-2 font-display font-bold rounded-full text-[#0a0a0a] bg-white px-5 py-[0.58rem]"
             >
-                    <span className="h-3 w-3 rounded-full bg-green-300"/>
+                    <span className="h-3 w-3 rounded-full bg-rose-400"/>
                     Hire Us
             </button>   
         </div>
