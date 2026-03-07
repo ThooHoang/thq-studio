@@ -1,3 +1,4 @@
+import Cursor from "./components/Cursor"
 import Hero from "./sections/Hero"
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
 
   return (
     <>
+      <Cursor/>
       <Hero />
     </>
   )
