@@ -3,10 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Button ({children, variant}: {children: React.ReactNode, variant:string}){
     
-
-
-    
-
     return (
         variant === "primary" 
         ? 

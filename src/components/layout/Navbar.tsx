@@ -6,8 +6,12 @@ export default function Navbar() {
   return (
     <header className="w-full">
         <div className="relative z-60 flex items-center justify-between">
-            <h1 className="font-sans text-xl"><span className="font-display font-bold">QTH.</span></h1>
+
+            {/* Logo */}
+
+            <h1 className="font-sans text-xl"><span className="font-display font-bold">THQ.</span></h1>
             
+            {/* Hamburger Menu */}
             <button
                 type="button"
                 className="md:hidden inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur"
@@ -35,7 +39,7 @@ export default function Navbar() {
                 </span>
             </button>
 
-
+            {/* Navbar Pill - Desktop  */}
             <nav className="hidden md:flex items-center justify-center bg-[#1a1a1a]/50 border border-white/10 rounded-full p-1.5" aria-label="Navbar">
                 <ul className="flex items-center justify-between gap-2">
                     <li>
@@ -61,6 +65,8 @@ export default function Navbar() {
                 </ul>
             </nav>
 
+
+            {/* Hire us button */}
             <button 
                 className="hidden md:flex items-center justify-center gap-2 font-display font-bold rounded-full text-[#0a0a0a] bg-white px-5 py-[0.58rem]"
             >
@@ -68,6 +74,9 @@ export default function Navbar() {
                     Hire Us
             </button>   
         </div>
+
+
+        {/* Hamburger Menu Opened */}
 
         {isOpen && (
             <div

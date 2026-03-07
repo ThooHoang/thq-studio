@@ -45,3 +45,35 @@ body {
         transparent 70%
     );
 }
+
+/* Marquee infinite scroll */
+
+@keyframes marquee {
+    0% { transform :translateX(0);}
+    100% {transform:translateX(-50%)}
+}
+
+.hero-marquee-track {
+    animation: marquee 25s linear infinite
+}
+
+.hero-marquee-track:hover .hero-marquee-track{
+    animation-play-state: paused;
+}
+
+
+/* Hero Text Animation */
+
+@keyframes hero-line-enter {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-hero-line-enter {
+    animation: hero-line-enter .5s ease-in-out forwards;
+  }
