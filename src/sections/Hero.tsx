@@ -30,7 +30,7 @@ export default function Hero() {
                   <Badge 
                       name="LEADING WEB DESIGN AGENCY IN DENMARK"
                   />
-                  <h1 className="text-4xl font-display font-normal bg-gradient-to-r from-rose-300 via-pink-200 to-rose-400 bg-clip-text text-transparent md:text-5xl text-center">Award-Winning Agency</h1>
+                  <h1 className="text-4xl font-display font-normal bg-gradient-to-r from-[#AA771C] via-[#FFED94] to-[#AA771C] bg-clip-text text-transparent md:text-5xl text-center">Award-Winning Agency</h1>
                   <div className="h-14 w-full overflow-hidden md:h-20">
                   {phrases.map((phrase, i) => (
                     <div

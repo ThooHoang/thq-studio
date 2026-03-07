@@ -1,6 +1,7 @@
 import Cursor from "./components/Cursor"
 import Hero from "./sections/Hero"
 import About from "./sections/About"
+import Works from "./sections/Works"
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       <Cursor/>
       <Hero />
       <About/>
+      <Works/>
     </>
   )
 }
