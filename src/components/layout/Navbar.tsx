@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <header className="w-full">
         <div className="relative z-60 flex items-center justify-between">
-            <h1 className="font-sans text-xl"><span className="font-display font-bold">QTH</span> STUDIO.</h1>
+            <h1 className="font-sans text-xl"><span className="font-display font-bold">QTH.</span></h1>
             
             <button
                 type="button"
