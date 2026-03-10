@@ -1,24 +1,19 @@
-import { useRef, useState, useEffect } from "react"
-import { motion, useInView } from "framer-motion"
-import { motionConfig } from "../lib/motion"
+import { useState, useEffect } from "react"
 import {client} from "../lib/sanityClient"
+import { urlFor } from "../lib/image"
 
 type Testimonial = {
   _id: string
   quote: string
   name: string
   role: string
-  avatar?: {
-    // image reference type; for now we can treat it as `any` or a specific Sanity image type
-  }
+  avatar?: any
 }
 const query = `*[_type == "testimonial"] | order(order asc, _createdAt asc)`
 
-
+ 
 export default function Testimonials() {
 
-  const ref = useRef<HTMLElement>(null)
-  const isInView = useInView(ref, { once: true, amount: 0.25 })
   const [current, setCurrent] = useState(0)
   const [visible, setVisible] = useState(true)
   const [testimonials,setTestimonials] = useState<Testimonial[]>([])
@@ -63,13 +58,7 @@ export default function Testimonials() {
   }
 
   return (
-    <motion.section
-      ref={ref}
-      initial={{ opacity: 0, y: 32 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
-      transition={{ duration: motionConfig.durationLong, ease: motionConfig.ease }}
-      className="bg-[#0a0a0a] border-t border-white/10 px-6 py-32 relative overflow-hidden flex flex-col items-center justify-center min-h-[560px]"
-    >
+    <section className="bg-[#0a0a0a] border-t border-white/10 px-6 py-32 relative overflow-hidden flex flex-col items-center justify-center min-h-[560px]">
       {/* Background glows */}
       <div
         className="md:absolute top-[40%] left-[25%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none"
@@ -100,13 +89,17 @@ export default function Testimonials() {
         </p>
 
         <div className="inline-flex items-center gap-3 bg-white/[0.04] border border-white/10 rounded-full pl-2 pr-5 py-2">
-          <img
-            src={(t as any).avatar}
-            alt={t.name}
-            className="w-9 h-9 rounded-full object-cover"
-            style={{ filter: "grayscale(20%)" }}
-          />
-          <div className="text-left">
+            <img
+              src={
+                t.avatar
+                  ? urlFor(t.avatar).width(80).height(80).fit("crop").url()
+                  : "https://via.placeholder.com/80" // optional fallback
+              }
+              alt={t.name}
+              className="w-9 h-9 rounded-full object-cover"
+              style={{ filter: "grayscale(20%)" }}
+            />
+            <div className="text-left">
             <p className="font-display font-bold text-[0.82rem] text-white leading-snug">
               {t.name}
             </p>
@@ -144,6 +137,6 @@ export default function Testimonials() {
           />
         ))}
       </div>
-    </motion.section>
+    </section>
   )
 }
