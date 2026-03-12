@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
-*{
+/* ── Smooth scrolling ─────────────────────────────── */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ── Custom light-mode variant ────────────────────── */
+@custom-variant light (&:where(.light, .light *));
+
+* {
     cursor: none;
 }
 
@@ -9,7 +17,12 @@ body {
     color: white;
     padding: 4rem;
     font-family: var(--font-sans);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
+html.light body {
+    background-color: #f5f4f1;
+    color: #0a0a0a;
 }
 
 @theme {
@@ -19,7 +32,7 @@ body {
 }
 
 
-/* Hero dots */
+/* ── Hero dots ────────────────────────────────────── */
 
 .hero-dots {
     background-color: #0a0a0a;
@@ -32,15 +45,24 @@ body {
     mask-image: radial-gradient(
         ellipse 85% 75% at 50% 45%,
         black 30%,
-        transparent 100% 
+        transparent 100%
     );
     -webkit-mask-image: radial-gradient(
-    ellipse 85% 75% at 50% 45%,
-    black 30%,
-    transparent 100%
-  );
+        ellipse 85% 75% at 50% 45%,
+        black 30%,
+        transparent 100%
+    );
+    transition: background-color 0.3s ease;
 }
 
+html.light .hero-dots {
+    background-color: #f5f4f1;
+    background-image: radial-gradient(
+        circle,
+        rgba(0,0,0,0.08) 1px,
+        transparent 1px
+    );
+}
 
 .hero-glow {
     background: radial-gradient(
@@ -51,7 +73,29 @@ body {
     );
 }
 
-/* Marquee infinite scroll */
+html.light .hero-glow {
+    background: radial-gradient(
+        ellipse 70% 60% at 50% 40%,
+        rgba(0, 0, 0, 0.03) 0%,
+        transparent 70%
+    );
+}
+
+/* ── ThqCard (inline-style bg override) ──────────── */
+
+html.light .thq-card {
+    background-color: #e8e7e4 !important;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1px) !important;
+}
+
+/* ── ProjectCard image overlay gradient ──────────── */
+
+html.light .project-card-overlay {
+    background: linear-gradient(to bottom, #e8e7e4, transparent) !important;
+}
+
+
+/* ── Marquee infinite scroll ─────────────────────── */
 
 @keyframes marquee {
     0% { transform :translateX(0);}
@@ -67,7 +111,7 @@ body {
 }
 
 
-/* Hero Text Animation */
+/* ── Hero Text Animation ─────────────────────────── */
 
 @keyframes hero-line-enter {
     from {

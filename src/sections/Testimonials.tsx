@@ -11,13 +11,13 @@ type Testimonial = {
 }
 const query = `*[_type == "testimonial"] | order(order asc, _createdAt asc)`
 
- 
+
 export default function Testimonials() {
 
   const [current, setCurrent] = useState(0)
   const [visible, setVisible] = useState(true)
   const [testimonials,setTestimonials] = useState<Testimonial[]>([])
-  
+
   useEffect(()=> {
     client
       .fetch<Testimonial[]>(query)
@@ -58,7 +58,7 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="bg-[#0a0a0a] border-t border-white/10 px-6 py-32 relative overflow-hidden flex flex-col items-center justify-center min-h-[560px]">
+    <section className="bg-[#0a0a0a] light:bg-[#f5f4f1] border-t border-white/10 light:border-black/10 px-6 py-32 relative overflow-hidden flex flex-col items-center justify-center min-h-[560px]">
       {/* Background glows */}
       <div
         className="md:absolute top-[40%] left-[25%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none"
@@ -70,10 +70,10 @@ export default function Testimonials() {
       />
 
       {/* Section label */}
-      <div className="flex items-center gap-4 font-mono text-[0.68rem] tracking-[0.15em] uppercase text-white/30 mb-16 z-10">
-        <span className="w-8 h-px bg-white/20 inline-block" />
+      <div className="flex items-center gap-4 font-mono text-[0.68rem] tracking-[0.15em] uppercase text-white/30 light:text-black/30 mb-16 z-10">
+        <span className="w-8 h-px bg-white/20 light:bg-black/20 inline-block" />
         What Clients Say
-        <span className="w-8 h-px bg-white/20 inline-block" />
+        <span className="w-8 h-px bg-white/20 light:bg-black/20 inline-block" />
       </div>
 
       {/* Quote block */}
@@ -82,28 +82,28 @@ export default function Testimonials() {
         style={{ opacity: visible ? 1 : 0 }}
       >
         <p
-          className="font-light italic text-[clamp(1.5rem,2.8vw,2.1rem)] leading-[1.65] text-white/70 mb-12 tracking-[0.01em]"
+          className="font-light italic text-[clamp(1.5rem,2.8vw,2.1rem)] leading-[1.65] text-white/70 light:text-black/70 mb-12 tracking-[0.01em]"
           style={{ fontFamily: "'Cormorant Garamond', serif" }}
         >
           {t.quote}
         </p>
 
-        <div className="inline-flex items-center gap-3 bg-white/[0.04] border border-white/10 rounded-full pl-2 pr-5 py-2">
+        <div className="inline-flex items-center gap-3 bg-white/[0.04] light:bg-black/[0.04] border border-white/10 light:border-black/10 rounded-full pl-2 pr-5 py-2">
             <img
               src={
                 t.avatar
                   ? urlFor(t.avatar).width(80).height(80).fit("crop").url()
-                  : "https://via.placeholder.com/80" // optional fallback
+                  : "https://via.placeholder.com/80"
               }
               alt={t.name}
               className="w-9 h-9 rounded-full object-cover"
               style={{ filter: "grayscale(20%)" }}
             />
             <div className="text-left">
-            <p className="font-display font-bold text-[0.82rem] text-white leading-snug">
+            <p className="font-display font-bold text-[0.82rem] text-white light:text-[#0a0a0a] leading-snug">
               {t.name}
             </p>
-            <p className="font-mono text-[0.58rem] tracking-[0.1em] uppercase text-white/30">
+            <p className="font-mono text-[0.58rem] tracking-[0.1em] uppercase text-white/30 light:text-black/30">
               {t.role}
             </p>
           </div>
@@ -112,14 +112,14 @@ export default function Testimonials() {
 
       <button
         onClick={() => goTo(current - 1)}
-        className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 w-[42px] h-[42px] rounded-full border border-white/10 bg-transparent text-white/35 flex items-center justify-center cursor-none hover:border-white/30 hover:text-white transition-all duration-250 z-10"
+        className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 w-[42px] h-[42px] rounded-full border border-white/10 light:border-black/10 bg-transparent text-white/35 light:text-black/35 flex items-center justify-center cursor-none hover:border-white/30 light:hover:border-black/30 hover:text-white light:hover:text-[#0a0a0a] transition-all duration-250 z-10"
       >
         ←
       </button>
 
       <button
         onClick={() => goTo(current + 1)}
-        className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 w-[42px] h-[42px] rounded-full border border-white/10 bg-transparent text-white/35 flex items-center justify-center cursor-none hover:border-white/30 hover:text-white transition-all duration-250 z-10"
+        className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 w-[42px] h-[42px] rounded-full border border-white/10 light:border-black/10 bg-transparent text-white/35 light:text-black/35 flex items-center justify-center cursor-none hover:border-white/30 light:hover:border-black/30 hover:text-white light:hover:text-[#0a0a0a] transition-all duration-250 z-10"
       >
         →
       </button>
@@ -131,8 +131,8 @@ export default function Testimonials() {
             onClick={() => goTo(i)}
             className={`rounded-full cursor-none transition-all duration-350 h-[6px] ${
               i === current
-                ? "w-5 bg-white/55"
-                : "w-[6px] bg-white/15 hover:bg-white/30"
+                ? "w-5 bg-white/55 light:bg-black/55"
+                : "w-[6px] bg-white/15 light:bg-black/15 hover:bg-white/30 light:hover:bg-black/30"
             }`}
           />
         ))}

@@ -1,4 +1,3 @@
-import Navbar from "../components/layout/Navbar"
 import Badge from "../components/ui/Badge"
 import Button from "../components/ui/Button"
 import { useState, useEffect } from "react"
@@ -26,12 +25,11 @@ export default function Hero() {
   }, [phrases.length])
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="relative min-h-screen w-full overflow-hidden pt-24">
 
       <DottedBg />
       <div className="flex flex-col items-center gap-y-16">
         <div className="flex flex-col gap-30 w-full justify-center">
-          <Navbar />
           <div className="text-xl mt-4 flex flex-col gap-4 justify-center items-center">
             <Badge name="WEB DESIGN AGENCY IN DENMARK" />
             <motion.h1
@@ -43,7 +41,7 @@ export default function Hero() {
               Danish Web Design Studio
             </motion.h1>
             <div className="h-14 w-full overflow-hidden md:h-20 flex items-center justify-center">
-              <h2 className="text-2xl font-serif font-bold italic text-center md:text-6xl text-white flex items-center justify-center gap-3">
+              <h2 className="text-2xl font-serif font-bold italic text-center md:text-6xl text-white light:text-[#0a0a0a] flex items-center justify-center gap-3">
 
                 {/* Only this part animates */}
                 <span className="overflow-hidden inline-flex justify-center items-center" style={{ height: "1.2em" }}>
@@ -70,8 +68,8 @@ export default function Hero() {
             transition={{ duration: motionConfig.duration, delay: 0.7 }}
             className="mt-3 flex w-fit items-center justify-center self-center gap-4 flex-wrap md:flex-nowrap"
           >
-            <Button variant="primary">Free strategy call</Button>
-            <Button variant="secondary">See our work</Button>
+            <Button variant="primary" href="#contact">Free strategy call</Button>
+            <Button variant="secondary" href="#works">See our work</Button>
           </motion.div>
         </div>
         <motion.div
